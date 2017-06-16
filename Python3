@@ -1,0 +1,53 @@
+import csv
+import codecs
+print("Enter a destination directory and file name:")
+inputFileName = input()
+print("Enter a CSV file name and location:")
+srcFile = input()
+myCSVFile = open(srcFile)
+myReader = csv.reader(myCSVFile) # returns the reader object
+myData = list(myReader) # convert the reader object to a Python list
+destFile = 'C:/apache/htdocs/codex32/JSON/' + str(inputFileName)
+myFile = codecs.open(destFile, 'w', encoding='utf-8')
+x = 0
+y = 0
+count = 0
+myFile.write("[\n")
+for index, row in enumerate(myData[:-2]):
+    myFile.write("\t{\n\t\t\"" + str(myData[y][x + 3])+ "\":\"" + str(myData[index + 1][x + 3]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 4])+ "\":\"" + str(myData[index + 1][x + 4]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 5])+ "\":\"" + str(myData[index + 1][x + 5]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 6])+ "\":\"" + str(myData[index + 1][x + 6]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 7])+ "\":\"" + str(myData[index + 1][x + 7]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 8])+ "\":\"" + str(myData[index + 1][x + 8]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 9])+ "\":\"" + str(myData[index + 1][x + 9]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 10])+ "\":\"" + str(myData[index + 1][x + 10]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 11])+ "\":\"" + str(myData[index + 1][x + 11]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 12])+ "\":\"" + str(myData[index + 1][x + 12]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 13])+ "\":\"" + str(myData[index + 1][x + 13]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 14])+ "\":\"" + str(myData[index + 1][x + 14]) + "\",\n" +
+    "\t\t\"" + str(myData[y][x + 15])+ "\":\"" + str(myData[index + 1][x + 15]) + "\"\n\t},\n" )
+    count = count + 1
+    print("line: " + str(count) + " complete!")
+    
+count = index + 2
+myFile.write("\t{\n\t\t\"" + str(myData[y][x + 3])+ "\":\"" + str(myData[count][x + 3]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 4])+ "\":\"" + str(myData[count][x + 4]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 5])+ "\":\"" + str(myData[count][x + 5]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 6])+ "\":\"" + str(myData[count][x + 6]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 7])+ "\":\"" + str(myData[count][x + 7]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 8])+ "\":\"" + str(myData[index + 1][x + 8]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 9])+ "\":\"" + str(myData[index + 1][x + 9]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 10])+ "\":\"" + str(myData[index + 1][x + 10]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 11])+ "\":\"" + str(myData[index + 1][x + 11]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 12])+ "\":\"" + str(myData[index + 1][x + 12]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 13])+ "\":\"" + str(myData[index + 1][x + 13]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 14])+ "\":\"" + str(myData[index + 1][x + 14]) + "\",\n" +
+"\t\t\"" + str(myData[y][x + 15])+ "\":\"" + str(myData[index + 1][x + 15]) + "\"\n\t}\n")
+
+myFile.write("\n]")
+
+myFile.close()
+
+print("line: " + str(count) + " complete!")
+print("Task done!")
